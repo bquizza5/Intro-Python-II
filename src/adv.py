@@ -62,16 +62,28 @@ while running == True:
     action = input('\ntype action here: ').upper()
 
     if action == 'N':
-        player_1.set_room(room[player_1.location.id].n_to)
+        try:
+            player_1.set_room(room[player_1.location.id].n_to)
+        except AttributeError:
+            print("\ncan't go that way...")
 
     elif action == 'E':
-        player_1.set_room(room[player_1.location.id].e_to)
+        try:
+            player_1.set_room(room[player_1.location.id].e_to)
+        except AttributeError:
+            print("\ncan't go that way...")
 
     elif action == 'S':
-        player_1.set_room(room[player_1.location.id].s_to)
+        try:
+            player_1.set_room(room[player_1.location.id].s_to)
+        except AttributeError:
+            print("\ncan't go that way...")
 
     elif action == 'W':
-        player_1.set_room(room[player_1.location.id].w_to)
+        try:
+            player_1.set_room(room[player_1.location.id].w_to)
+        except AttributeError:
+            print("\ncan't go that way...")
 
     elif action == 'Q':
         running = False
