@@ -5,10 +5,20 @@ from room import Room
 
 class Player(object):
     
-    def __init__(self, name, location):
+    def __init__(self, name, location, items=None):
         self.name = name
         self.location = location
+        self.items = [items]
 
 
     def set_room(self, room):
         self.location = room
+    
+    def pick_up_item(self, item):
+        print('picked up', item.name)
+        self.items.append(item)
+
+
+    def drop_item(self,item):
+        self.items.remove(item)
+        print(item.name, 'dropped')
