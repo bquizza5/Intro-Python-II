@@ -63,8 +63,10 @@ player_1 = Player('player1', room['outside'])
 # If the user enters "q", quit the game.
 
 running = True
+printMyItems = False
 
 while running == True:
+
     def printItems(i):
         return i.name + ': ' + i.description
 
@@ -80,6 +82,16 @@ while running == True:
     except AttributeError:
         print('none')
 
+
+
+    print('My Items: ')
+    myItems = map(printItems, player_1.items)
+    try:
+        for i in myItems:
+            print(i)
+    except AttributeError:
+        print('none')
+
     
 
     action = input('\ntype action here: ').upper()
@@ -87,16 +99,16 @@ while running == True:
         action = action.lower().split(' ')
         if 'take' in action[0]:
             try:
-                player_1.pick_up_item(item[action[1]])
                 player_1.location.remove_item(item[action[1]])
-            except TypeError:
-                print('not an item')
+                player_1.pick_up_item(item[action[1]])
+            except:
+                print('***not an item***')
         elif 'drop' in action[0]:
             try:
                 player_1.drop_item(item[action[1]])
                 player_1.location.add_item(item[action[1]])
-            except TypeError:
-                print('not an item')
+            except:
+                print('***not an item***')
 
     elif action == 'N':
         try:

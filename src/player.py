@@ -15,8 +15,11 @@ class Player(object):
         self.location = room
     
     def pick_up_item(self, item):
-        print('picked up', item.name)
-        self.items.append(item)
+        if self.items == [None]:
+            self.items = [item]
+        else:
+            print('picked up', item.name)
+            self.items.append(item)
 
 
     def drop_item(self,item):
