@@ -80,7 +80,7 @@ while running == True:
         for i in items:
             print(i)
     except AttributeError:
-        print('none')
+        print('')
 
 
 
@@ -90,7 +90,7 @@ while running == True:
         for i in myItems:
             print(i)
     except AttributeError:
-        print('none')
+        print('')
 
     
 
@@ -138,5 +138,5 @@ while running == True:
         running = False
     else: 
         print('\naction not valid\n')
-        print('N = move north\nE = move east\nS = move south\nW = move west\nQ = quit')
+        print('N = move north\nE = move east\nS = move south\nW = move west\nQ = quit\ntake "item name" = take item\ndrop "item name" = drop item')
 
